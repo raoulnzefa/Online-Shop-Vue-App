@@ -1,10 +1,9 @@
 <template>
     <div class="v-cart">
-        Cart
     </div>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss">
     @import './index.scss';
 </style>
 
