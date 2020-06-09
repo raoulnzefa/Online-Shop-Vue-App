@@ -1,6 +1,7 @@
 @import "./../../assets/styles/variables.scss";
 
 .v-cart-item {
+    text-align: center;
     flex-basis: 25%;
     box-shadow: 0 0 8px 0 #e8e8e8;
     padding: $padding*2;

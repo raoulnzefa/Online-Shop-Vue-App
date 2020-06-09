@@ -13,7 +13,13 @@ let store = new Vuex.Store({
             state.products = products
         },
         ADD_TO_CART(state, product) {
-            state.cart.push(product);
+            let similarItems = state.cart.filter((item) => item.article === product.article);
+            if (!similarItems.length) {
+                state.cart.push(product);
+            }
+        },
+        DELETE_FROM_CART(state, article) {
+            state.cart = state.cart.filter((item) => item.article !== article);
         }
     },
     actions: {
@@ -28,6 +34,9 @@ let store = new Vuex.Store({
         },
         ADD_TO_CART({commit}, product) {
             commit("ADD_TO_CART", product);
+        },
+        DELETE_FROM_CART ({commit}, article) {
+            commit("DELETE_FROM_CART", article);
         }
     },
     getters: {

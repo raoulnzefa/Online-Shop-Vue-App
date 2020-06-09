@@ -3,9 +3,8 @@
         <img class="v-cart-item__image" :src="require(`@/assets/images/${productData.image}`)" alt="">
         <p class="v-cart-item__name">{{productData.name}}</p>
         <p class="v-cart-itemm__price">Price: {{productData.price}} руб.</p>
-        <button>
-            Buy
-        </button>
+        <button>Buy</button>
+        <button @click="deleteFromCart">Delete</button>
     </div>
 </template>
 
@@ -33,7 +32,9 @@ export default {
     },
     
     methods: {
-        
+        deleteFromCart () {
+            this.$emit("deleteFromCart", this.productData.article);
+        }
     },
     mounted() {
         
