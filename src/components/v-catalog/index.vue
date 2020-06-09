@@ -6,12 +6,12 @@
             v-for="product in PRODUCTS"
             :key="product.article"
             :productData="product"
-            @sendArticle="showArticle"/>
+            @addToCart="ADD_TO_CART"/>
         </div>
     </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
     @import "./index.scss";
 </style>
 
@@ -31,11 +31,10 @@ export default {
     
     methods: {
       ...mapActions([
-        "FETCH_PRODUCTS"
+        "FETCH_PRODUCTS",
+        "ADD_TO_CART"
       ]),
-        showArticle (data) {
-          console.log(data)
-        }
+    
     },
     mounted() {
        this.FETCH_PRODUCTS();

@@ -5,11 +5,15 @@ import axios from "axios";
 Vue.use(Vuex);
 let store = new Vuex.Store({
     state: {
-        products: []
+        products: [],
+        cart: []
     },
     mutations: {
         SET_PRODUCTS (state, products) {
             state.products = products
+        },
+        ADD_TO_CART(state, product) {
+            state.cart.push(product);
         }
     },
     actions: {
@@ -21,11 +25,17 @@ let store = new Vuex.Store({
                 commit("SET_PRODUCTS", products.data);
                 return products;
             })
+        },
+        ADD_TO_CART({commit}, product) {
+            commit("ADD_TO_CART", product);
         }
     },
     getters: {
         PRODUCTS(state) {
             return state.products;
+        },
+        CART(state) {
+            return state.cart;
         }
     }
 });

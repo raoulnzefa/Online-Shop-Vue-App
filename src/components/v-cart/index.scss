@@ -1,3 +1,12 @@
-/*.v-cart {
-    
-}*/
+.v-cart {
+    &__items-wrapper {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -2%;
+        justify-content: space-between;
+    }
+   h2 {
+       text-align: center;
+   } 
+}
