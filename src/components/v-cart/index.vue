@@ -17,6 +17,11 @@
             @deleteFromCart="DELETE_FROM_CART" 
             />
         </div>
+        <div 
+            class="v-cart__total-price"
+            v-if="CART.length"
+            >Total: {{getTotalPrice}} RUB
+        </div>
     </div>
 </template>
 
@@ -39,9 +44,17 @@ export default {
       ]),
     },
      computed: {
-         ...mapGetters([
+        ...mapGetters([
         "CART"
-      ])
+      ]),
+      getTotalPrice () {
+          let total = 0;
+          for (let item of this.CART) {
+              total+= (item.price * item.amount);
+          }
+          return total;
+      }
+      
     }
 };
 </script>
