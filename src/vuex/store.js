@@ -13,9 +13,15 @@ let store = new Vuex.Store({
             state.products = products
         },
         ADD_TO_CART(state, product) {
-            let similarItems = state.cart.filter((item) => item.article === product.article);
-            if (!similarItems.length) {
+            if(!state.cart.length) {
                 state.cart.push(product);
+            } else {
+                let similarItems = state.cart.filter((item) => item.article === product.article);
+                if (!similarItems.length) {
+                    state.cart.push(product);
+                } else {
+                    similarItems[0].amount++;
+                }
             }
         },
         DELETE_FROM_CART(state, article) {

@@ -1,8 +1,8 @@
 <template>
     <div class="v-cart">
-        <h2 @click="toggleShowCart">Cart</h2>
+        <h1>Cart</h1>
         <h3>Total count: {{cartData.length}}</h3>
-        <div v-if="cartSeen" class="v-cart__items-wrapper">
+        <div class="v-cart__items-wrapper">
             <vCartItem 
             v-for="product in cartData"
             :key="product.articte"
@@ -35,7 +35,6 @@ export default {
     },
     data() {
         return {
-            cartSeen: false
         };
     },
     
@@ -43,9 +42,6 @@ export default {
         ...mapActions([
         "DELETE_FROM_CART"
       ]),
-        toggleShowCart () {
-            this.cartSeen = !this.cartSeen;
-        },
     },
     mounted() {
     },
