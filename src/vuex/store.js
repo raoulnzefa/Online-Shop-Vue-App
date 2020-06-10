@@ -16,11 +16,9 @@ let store = new Vuex.Store({
             if(!state.cart.length) {
                 state.cart.push(product);
             } else {
-                let similarItems = state.cart.filter((item) => item.article === product.article);
-                if (!similarItems.length) {
+                let similarItem = state.cart.filter((item) => item.article === product.article)[0];
+                if (!similarItem) {
                     state.cart.push(product);
-                } else {
-                    similarItems[0].amount++;
                 }
             }
         },

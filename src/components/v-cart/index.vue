@@ -1,14 +1,22 @@
 <template>
     <div class="v-cart">
-        <h1>Cart</h1>
-        <h3>Total count: {{cartData.length}}</h3>
+        <h1 class="v-cart__title">Cart</h1>
+            <router-link :to="{ name: 'catalog' }">
+                <div class="v-cart__link-to-catalog">Back to catalog</div>
+            </router-link>
+        <p 
+            class="v-cart__empty-card-warning" 
+            v-if="!CART.length">
+            Your cart is empty :(
+        </p>
         <div class="v-cart__items-wrapper">
             <vCartItem 
-            v-for="product in cartData"
+            v-for="product in CART"
             :key="product.articte"
             :productData="product"
-            @deleteFromCart="DELETE_FROM_CART" />
-            </div>
+            @deleteFromCart="DELETE_FROM_CART" 
+            />
+        </div>
     </div>
 </template>
 
@@ -18,34 +26,22 @@
 
 <script>
 import vCartItem from "./../v-cart-item/index";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
     name: 'V-cart',
     components: {
         vCartItem
     },
-    props: {
-        cartData: {
-            type: Array,
-            default () {
-                return  [];
-            }
-        }
-    },
-    data() {
-        return {
-        };
-    },
-    
     methods: {
         ...mapActions([
         "DELETE_FROM_CART"
       ]),
     },
-    mounted() {
-    },
      computed: {
+         ...mapGetters([
+        "CART"
+      ])
     }
 };
 </script>

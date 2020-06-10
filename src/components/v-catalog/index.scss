@@ -1,5 +1,8 @@
+@import "./../../assets/styles/styles.scss";
+
 .v-catalog {
     margin-top: 30px;
+    position: relative;
     &__list {
     display: flex;
     flex-wrap: wrap;
@@ -8,5 +11,8 @@
     }
     &__title {
         text-align: center;
+    }
+    &__link-to-cart {
+        @include router-link;
     }
 }

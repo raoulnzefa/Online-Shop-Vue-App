@@ -1,6 +1,9 @@
 <template>
     <div class="v-catalog">
       <h1 class="v-catalog__title">Catalog</h1>
+      <router-link :to="{ name: 'cart' }">
+        <div class="v-catalog__link-to-cart">Cart: {{CART.length}}</div>
+      </router-link>
         <div class="v-catalog__list">
             <vCatalogItem 
             v-for="product in PRODUCTS"
@@ -22,13 +25,7 @@ export default {
     name: "V-catalog",
     components: {
         vCatalogItem
-    },
-    data() {
-        return {
-        
-      };
-    },
-    
+    },  
     methods: {
       ...mapActions([
         "FETCH_PRODUCTS",
@@ -41,7 +38,8 @@ export default {
     },
     computed: {
       ...mapGetters([
-        "PRODUCTS"
+        "PRODUCTS",
+        "CART"
       ])
     }
 };

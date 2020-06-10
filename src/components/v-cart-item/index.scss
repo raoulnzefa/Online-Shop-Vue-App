@@ -10,9 +10,10 @@
     &__image {
         height: 100px;
     }
-    &__button-wrapper {
+    &__delete-btn-wrapper {
         button {
             margin: 16px;
+            cursor: pointer;
         }
     }
     &__change-item-amount-btn {
@@ -26,5 +27,4 @@
         background-color: lightgrey;
         user-select: none;
     }
-
 }

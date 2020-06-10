@@ -1,15 +1,26 @@
 <template>
     <div class="v-cart-item">
-        <img class="v-cart-item__image" :src="require(`@/assets/images/${productData.image}`)" alt="">
+        <img 
+        class="v-cart-item__image" 
+        :src="require(`@/assets/images/${productData.image}`)" 
+        alt="">
         <p class="v-cart-item__name">{{productData.name}}</p>
         <p class="v-cart-item__price">Price: {{productData.price}} RUB</p>
         <p class="v-cart-item__amount">
             Amount: 
-            <span class="v-cart-item__change-item-amount-btn" @click="incrementAmount">+</span> 
+            <span 
+            class="v-cart-item__change-item-amount-btn"
+            @click="incrementAmount">
+            +
+            </span> 
             {{productData.amount}} 
-            <span class="v-cart-item__change-item-amount-btn" @click="decrementAmount">-</span>
+            <span 
+            class="v-cart-item__change-item-amount-btn" 
+            @click="decrementAmount">
+            -
+            </span>
         </p>
-        <div class="v-cart-item__button-wrapper">
+        <div class="v-cart-item__delete-btn-wrapper">
         <button @click="deleteFromCart">Delete</button>
         </div>
     </div>
@@ -31,13 +42,7 @@ export default {
                 return {};
             }
         }
-    },
-    data() {
-        return {
-            
-        };
-    },
-    
+    }, 
     methods: {
         deleteFromCart () {
             this.$emit("deleteFromCart", this.productData.article);

@@ -1,11 +1,21 @@
+@import "./../../assets/styles/styles.scss";
+
 .v-cart {
+    position: relative;
     &__items-wrapper {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
     }
-   h1 {
+    &__link-to-catalog {
+        @include router-link;
+    }
+    &__empty-card-warning {
+        font-size: 20px;
+        text-align: center;
+    }
+   &__title {
        text-align: center;
    } 
 }

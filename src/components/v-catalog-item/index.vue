@@ -29,19 +29,10 @@ export default {
             }
         }
     },
-    data() {
-        return {
-
-        };
-    },
-    
     methods: {
         addToCart () {
             this.$emit("addToCart", this.productData);
         }
-    },
-    mounted() {
-        
     },
 };
 </script>
