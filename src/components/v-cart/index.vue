@@ -6,7 +6,8 @@
             </router-link>
         <p 
             class="v-cart__empty-card-warning" 
-            v-if="!CART.length">
+            v-if="!CART.length"
+        >
             Your cart is empty :(
         </p>
         <div class="v-cart__items-wrapper">
