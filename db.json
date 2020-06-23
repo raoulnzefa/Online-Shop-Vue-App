@@ -6,7 +6,7 @@
       "price": 2100,
       "article": "T1",
       "available": true,
-      "category": "Мужские"
+      "category": "men"
     },
     {
       "image": "2.jpg",
@@ -14,7 +14,7 @@
       "price": 3150,
       "article": "T2",
       "available": true,
-      "category": "Женские"
+      "category": "women"
     },
     {
       "image": "3.jpg",
@@ -22,7 +22,7 @@
       "price": 4200,
       "article": "T3",
       "available": false,
-      "category": "Женские"
+      "category": "women"
     },
     {
       "image": "4.jpg",
@@ -30,7 +30,7 @@
       "price": 5300,
       "article": "T4",
       "available": true,
-      "category": "Мужские"
+      "category": "men"
     },
     {
       "image": "5.jpg",
@@ -38,7 +38,7 @@
       "price": 6500,
       "article": "T5",
       "available": false,
-      "category": "Женские"
+      "category": "women"
     },
     {
       "image": "6.jpg",
@@ -46,7 +46,7 @@
       "price": 8700,
       "article": "T6",
       "available": true,
-      "category": "Женские"
+      "category": "women"
     }
   ]
 }

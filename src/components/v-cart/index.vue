@@ -31,7 +31,7 @@
 </style>
 
 <script>
-import vCartItem from "./../v-cart-item/index";
+import vCartItem from "./v-cart-item/index";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
