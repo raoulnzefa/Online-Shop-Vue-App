@@ -14,8 +14,8 @@ const routes = [
   {
     path: "/cart",
     name: "cart",
-    component: Cart,
-  },
+    component: Cart
+  }
 ];
 
 const router = new VueRouter({

@@ -1,7 +1,7 @@
 <template>
-    <div id="app">
-      <vMainWrapper/>
-    </div>
+  <div id="app">
+    <vMainWrapper />
+  </div>
 </template>
 <script>
 import vMainWrapper from "./components/v-main-wrapper/index";
