@@ -1,5 +1,8 @@
 <template>
   <div class="v-catalog">
+    <vNotification
+    :messages="messages"
+    :timeout="3000"/>
     <h1 class="v-catalog__title">Catalog</h1>
     <router-link :to="{ name: 'cart' }">
       <div class="v-catalog__link-to-cart">Cart: {{ CART.length }}</div>
@@ -14,7 +17,7 @@
         v-for="product in filteredProducts"
         :key="product.article"
         :productData="product"
-        @addToCart="ADD_TO_CART"
+        @addToCart="addToCart"
       />
     </div>
   </div>
@@ -27,12 +30,14 @@
 <script>
 import vCatalogItem from "./v-catalog-item/index";
 import vSelect from "./../v-select/index";
+import vNotification from "./../v-notification/index";
 import { mapActions, mapGetters } from "vuex";
 export default {
   name: "V-catalog",
   components: {
     vCatalogItem,
-    vSelect
+    vSelect,
+    vNotification
   },
   methods: {
     ...mapActions(["FETCH_PRODUCTS", "ADD_TO_CART"]),
@@ -47,6 +52,12 @@ export default {
           );
           break;
       }
+    },
+    addToCart (data) {
+      this.ADD_TO_CART(data)
+      .then(()=> {
+        this.messages.push({id: Date.now(), text: "Item added to cart"})
+      })
     }
   },
   data() {
@@ -57,7 +68,8 @@ export default {
         { name: "men", value: "men" }
       ],
       selected: "all",
-      sortedProducts: []
+      sortedProducts: [],
+      messages: []
     };
   },
   mounted() {

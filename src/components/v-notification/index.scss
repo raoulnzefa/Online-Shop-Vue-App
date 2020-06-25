@@ -1,0 +1,61 @@
+@import "./../../assets/styles/variables.scss";
+.v-notification {
+    position: fixed;
+    top: 80px;
+    right: 16px;
+    z-index: 10;
+    .messages_list {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    &__content {
+        background-color:#00a500;
+        padding: $padding*2;
+        border-radius: 4px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        margin-bottom: 16px;
+    }
+    .content__text {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .material-icons {
+            margin-left: 16px;
+        }
+    }
+    .v-transition-animate {
+        &-enter {
+            transform: translateX(120px);
+            opacity: 0;
+        }
+        &-enter-active {
+            transition: all .6s ease;
+        }
+        &-enter-to {
+            opacity: 1;
+            
+        }
+        &-leave {
+            height: 50px;
+            opacity: 1;
+
+        }
+        &-leave-active {
+            transition: transform .6s ease, opacity .6s, height .6s .2s;
+
+        }
+        &-leave-to {
+            height: 0;
+            transform: transition .6s ease, translateX(120px);
+
+            opacity: 0;
+        }
+        &-move {
+            transition: transform .6s ease;
+        }
+    }
+}
