@@ -9,7 +9,9 @@ export default {
       let similarItem = state.cart.filter(
         item => item.article === product.article
       )[0];
-      if (!similarItem) {
+      if (similarItem) {
+        similarItem.amount++;
+      } else {
         state.cart.push(product);
       }
     }

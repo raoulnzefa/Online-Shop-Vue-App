@@ -4,9 +4,15 @@ export default {
   FETCH_PRODUCTS({ commit }) {
     return axios("http://localhost:3000/products", {
       method: "GET"
-    }).then(products => {
-      commit("SET_PRODUCTS", products.data);
-      return products;
+    })
+    .then(products => {
+      return products.data.map(item => {
+        return { ...item, amount: 1 };
+      });
+    })
+    .then(items => {
+      commit("SET_PRODUCTS", items);
+      return items;
     });
   },
   ADD_TO_CART({ commit }, product) {

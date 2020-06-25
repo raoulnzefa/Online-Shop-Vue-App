@@ -63,8 +63,5 @@ export default {
       }
     }
   },
-  mounted() {
-    this.$set(this.productData, "amount", 1);
-  }
 };
 </script>
