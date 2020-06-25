@@ -2,11 +2,24 @@
   <div class="v-catalog">
     <vNotification
     :messages="messages"
-    :timeout="3000"/>
+    :timeout="2000"/>
     <h1 class="v-catalog__title">Catalog</h1>
     <router-link :to="{ name: 'cart' }">
       <div class="v-catalog__link-to-cart">Cart: {{ CART.length }}</div>
     </router-link>
+    <div class="v-catalog__search-bar">
+      <input
+        class="search-input" 
+        type="text" 
+        placeholder="Type to search"
+        v-model="searchValue"
+      >
+      <i 
+      class="material-icons"
+      @click="cleanSearchValue"
+      >close
+      </i>
+    </div>
     <vSelect
       :options="categories"
       :selected="selected"
@@ -37,7 +50,7 @@ export default {
   components: {
     vCatalogItem,
     vSelect,
-    vNotification
+    vNotification,
   },
   methods: {
     ...mapActions(["FETCH_PRODUCTS", "ADD_TO_CART"]),
@@ -58,6 +71,9 @@ export default {
       .then(()=> {
         this.messages.push({id: Date.now(), text: "Item added to cart"})
       })
+    },
+    cleanSearchValue () {
+      this.searchValue="";
     }
   },
   data() {
@@ -69,7 +85,8 @@ export default {
       ],
       selected: "all",
       sortedProducts: [],
-      messages: []
+      messages: [],
+      searchValue: ""
     };
   },
   mounted() {
@@ -78,7 +95,8 @@ export default {
   computed: {
     ...mapGetters(["PRODUCTS", "CART"]),
     filteredProducts() {
-      return this.sortedProducts.length ? this.sortedProducts : this.PRODUCTS;
+      const readyProducts = this.sortedProducts.length ? this.sortedProducts : this.PRODUCTS;
+      return readyProducts.filter((item) => item.name.toLowerCase().includes(this.searchValue.toLowerCase()));
     }
   }
 };
